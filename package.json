@@ -1,0 +1,23 @@
+{
+  "name": "fitportal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wzaghal/fitportal.git"
+  },
+  "author": "Wisam Zaghal <wisamzaghal@gmail.com> (http://wisam.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wzaghal/fitportal/issues"
+  },
+  "homepage": "https://github.com/wzaghal/fitportal#readme",
+  "dependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
