@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --progress"
+    "start": "jspm bundle-sfx --minify src/index",
+    "dev": "live-server"
   },
   "repository": {
     "type": "git",

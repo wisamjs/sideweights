@@ -1,0 +1,27 @@
+.root {
+  margin: auto;
+}
+
+.tiny {
+  border: 10px solid #C02942;
+}
+
+.small {
+  border: 10px solid #ECD078;
+}
+
+.medium {
+ border: 10px solid #D95B43;
+}
+
+.big {
+  border: 10px solid #53777A;
+}
+
+.bigger {
+  border: 10px solid #0F1A26;
+ }
+
+ .huge {
+   border: 10px solid #542437;
+ }

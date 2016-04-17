@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Greeting from './components/Greeting';
+import KitchenSink from './containers/KitchenSink';
 
 ReactDOM.render(
-  <Greeting>hi there</Greeting>, document.getElementById('root')
+  <KitchenSink/>, document.getElementById('root')
 );
