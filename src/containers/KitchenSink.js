@@ -14,7 +14,6 @@ class KitchenSink extends Component {
   render() {
     return (
       <div>
-      <Greeting>Hi</Greeting>
       <Label>Weight</Label>
       <input type="number" pattern="\d*" onChange={function(){console.log('change!')}}/>
       <Weight type="tiny" amount="2.5"></Weight>
