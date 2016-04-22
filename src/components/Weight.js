@@ -29,7 +29,6 @@ const styles = {
   inner: {
     backgroundColor: '#313131',
     color: '#efefef',
-    margin: '5px',
     width: '90px',
     height: '90px',
     borderRadius: '50%',

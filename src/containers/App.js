@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Immutable from 'immutable';
 
-import { increase, decrease } from '../reducers/counter';
+import { changeTotal } from '../reducers/calculator';
 
 import Button from '../components/Button';
+import WeightGrid from './WeightGrid';
+import Input from '../components/Input';
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter,
+    total: state.calculator.get('total')
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onIncrease: () => dispatch(increase()),
-    onDecrease: () => dispatch(decrease()),
+    onChange: (e) => dispatch(changeTotal(parseInt(e.target.value)))
   };
 }
 
-const App = ({ onIncrease, onDecrease, counter }) => {
+const App = ({ onIncrease, onDecrease, onChange, total, tiny}) => {
   return (
     <div>
-      <h1>{ counter }</h1>
-
-      <Button onClick={ onIncrease }>Increase</Button>
-      <Button onClick={ onDecrease } status="danger">Decrease</Button>
+    <WeightGrid/>
+      <h1>{ total }</h1>
+      <input type="number" pattern="\d*"  value={total}  onChange={onChange}/>
     </div>
   );
 };

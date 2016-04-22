@@ -1,5 +1,6 @@
-import counter from './counter';
+// import counter from './counter';
+import calculator from './calculator';
 
 export {
-  counter,
+  calculator
 };
