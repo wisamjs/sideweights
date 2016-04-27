@@ -115,7 +115,8 @@ const styles = {
   },
   weightsBorder: {
     borderTop: '5px solid #E8F8E9',
-    marginTop: '10px'
+    marginTop: '10px',
+    paddingTop: '10px'
   },
   weights: {
     marginBottom: '10px',
