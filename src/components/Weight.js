@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const Weight = ({amount, type}) => {
+const Weight = ({amount, type, disabled}) => {
+
   return (
-    <div style={{...styles.outer}} className={type}>
+    <div style={{...styles.outer}} className={ disabled ? 'disabled' : type }>
       <div style={{...styles.inner}}>
         <div style={{...styles.content}}>{amount} lbs</div>
       </div>
@@ -12,25 +13,30 @@ const Weight = ({amount, type}) => {
 
 Weight.defaultProps  = {
   amount: 2.5,
-  type: 'red'
+  type: 'red',
+  disabled: false
 };
 
 Weight.propTypes = {
   amount: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired
 }
 
 const styles = {
   outer: {
-  height: '100px',
-  width: '100px',
+  height: '90px',
+  width: '90px',
   borderRadius: '50%'
+  },
+  disabled: {
+    border: '5px solid grey'
   },
   inner: {
     backgroundColor: '#313131',
     color: '#efefef',
-    width: '90px',
-    height: '90px',
+    width: '80px',
+    height: '80px',
     borderRadius: '50%',
     display: 'flex',
     justifyContent: 'center',
@@ -38,7 +44,7 @@ const styles = {
   },
   content: {
     flex: '1 1 auto',
-    marginBottom: '10px',
+    marginBottom: '5px',
     textAlign: 'center',
     fontWeight: '100',
     fontFamily: 'Helvetica Neue',

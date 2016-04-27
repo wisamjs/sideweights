@@ -2,6 +2,10 @@
   margin: auto;
 }
 
+label {
+  text-align: center;
+}
+
 .tiny {
   border: 5px solid #C02942;
 }
@@ -26,6 +30,12 @@
    border: 5px solid #542437;
  }
 
+ .disabled {
+   border: 5px solid grey;
+ }
+
  body {
-   margin: 30px 30px;
+  background: #31485F;
+  color: #81BDE3;
+   margin: 10px 10px;
  }

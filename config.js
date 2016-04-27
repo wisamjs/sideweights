@@ -22,6 +22,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "immutable": "npm:immutable@3.8.1",
     "jsonp": "npm:jsonp@0.2.0",
+    "ramda": "npm:ramda@0.21.0",
     "react": "npm:react@0.14.6",
     "react-dom": "npm:react-dom@0.14.6",
     "react-redux": "npm:react-redux@4.4.5",
@@ -494,6 +495,9 @@ System.config({
       "randombytes": "npm:randombytes@2.0.2"
     },
     "npm:punycode@1.3.2": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:ramda@0.21.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:randombytes@2.0.2": {

@@ -5,7 +5,7 @@ import { fromJS } from 'immutable';
 export const CHANGETOTAL = '@@app/CHANGETOTAL';
 
 const INITIAL_STATE = fromJS({
-  total: 0,
+  total: 135,
   tiny: 0,
   small: 0,
   medium: 0,
