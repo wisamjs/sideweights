@@ -1,5 +1,5 @@
 {
-  "name": "fitportal",
+  "name": "<p class="personal-use__description">",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wzaghal/fitportal.git"
+    "url": "git+https://github.com/wzaghal/sideweights.git"
   },
   "author": "Wisam Zaghal <wisamzaghal@gmail.com> (http://wisam.io/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wzaghal/fitportal/issues"
+    "url": "https://github.com/wzaghal/sideweights/issues"
   },
-  "homepage": "https://github.com/wzaghal/fitportal#readme",
+  "homepage": "https://github.com/wzaghal/sideweights#readme",
   "dependencies": {
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
