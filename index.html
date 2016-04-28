@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="./src/styles/basscss.css">
     <link rel="stylesheet" href="./src/styles/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -16,6 +16,12 @@
     <script src="config.js"></script>
     <script>
       System.import('./src/index.js');
+      function autoResizeDiv() {
+        document.getElementById('root').style.height = window.innerHeight +'px';
+      }
+
+      window.onresize = autoResizeDiv;
+      autoResizeDiv();
     </script>
   </body>
 </html>

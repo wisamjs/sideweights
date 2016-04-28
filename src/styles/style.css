@@ -35,7 +35,12 @@ label {
  }
 
  body {
-  background: #31485F;
-  color: #81BDE3;
+  font-family: 'Open sans';
+  background-image: linear-gradient(to bottom, #2798C2, #283E51);
+  color: #fff;
    margin: 10px 10px;
+ }
+
+ h1 {
+   font-weight: 400;
  }

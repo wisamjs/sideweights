@@ -5,6 +5,7 @@ import { fromJS, toJS } from 'immutable';
 import Immutable from 'immutable';
 import Weight from '../components/Weight';
 import Label from '../components/Label';
+import Barbell from '../components/Barbell';
 
 import { makeArray } from '../utilities/helpers';
 import { changeTotal } from '../reducers/calculator';
@@ -56,11 +57,12 @@ function calculateWeights(weight) {
   }, fromJS([])).toJS();
 }
 
-const App = ({ onIncrease, onDecrease, onChange, total, tiny, small, medium, big, bigger, huge}) => {
+const SideWeight = ({ onIncrease, onDecrease, onChange, total, tiny, small, medium, big, bigger, huge}) => {
   return (
     <div className="container flex flex-column items-start items-stretch ">
       <div className="head" style={styles.head}>
         <h1 style={styles.title}>Side Weights</h1>
+        <Barbell/>
       </div>
 
       <div className="flex flex-column" style={styles.weights}>
@@ -111,10 +113,9 @@ const styles = {
     height: '100%'
   },
   disabled: {
-   // border: '5px solid grey'
+    display: 'none'
   },
   weightsBorder: {
-    borderTop: '5px solid #E8F8E9',
     marginTop: '10px',
     paddingTop: '10px'
   },
@@ -124,7 +125,7 @@ const styles = {
   },
   title: {
     textAlign: 'center',
-    fontSize: '65px',
+    fontSize: '55px',
     margin: 0
   },
   head: {
@@ -147,4 +148,4 @@ const styles = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(SideWeight);
