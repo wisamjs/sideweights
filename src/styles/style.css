@@ -35,12 +35,12 @@ label {
  }
 
  body {
-  font-family: 'Open sans';
   background-image: linear-gradient(to bottom, #2798C2, #283E51);
   color: #fff;
-   margin: 10px 10px;
+  margin: 10px 10px;
  }
 
  h1 {
    font-weight: 400;
+   font-family: 'Montserrat Alternatives', san serrif;
  }

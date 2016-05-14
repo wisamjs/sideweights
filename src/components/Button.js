@@ -7,12 +7,11 @@ const buttonStatus = {
   danger: 'bg-red'
 }
 
-const Button = ({ type, onClick, status, children }) => {
+const Button = ({onClick, status, children, style }) => {
   return (
     <button
-      type={ type }
       onClick={ onClick }
-      className={ `btn btn-primary white ${ buttonStatus[status] }` }>
+      style={style}>
       { children }
     </button>
   );
@@ -27,7 +26,6 @@ Button.propTypes = {
   /**
    * The type of button
    */
-  type: PropTypes.oneOf(['button', 'reset', 'submit']),
   /**
    * The status of type of the button
    */
@@ -36,11 +34,13 @@ Button.propTypes = {
    * The onClick function of the button
    */
   onClick: PropTypes.func,
+
+  style: PropTypes.object
 };
 Button.defaultProps = {
-  type: 'submit',
   onClick: () => {},
   status: 'primary',
+  style: {}
 };
 
 export default Button;

@@ -8,9 +8,9 @@ import Label from '../components/Label';
 import Barbell from '../components/Barbell';
 
 import { makeArray } from '../utilities/helpers';
-import { changeTotal } from '../reducers/calculator';
+import { updateTotal, increaseTotalBy, clearTotal } from '../reducers/calculator';
 
-import Button from '../components/Button';
+import Key from '../components/Key';
 import Input from '../components/Input';
 
 const BAR_WEIGHT = 45;
@@ -39,7 +39,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange: (e) => dispatch(changeTotal(parseInt(e.target.value)))
+    onKeyPress: (val) => dispatch(updateTotal(val)),
+    increaseBy: (val) => dispatch(increaseTotalBy(val)),
+    clear: () => dispatch(clearTotal())
   };
 }
 
@@ -57,7 +59,7 @@ function calculateWeights(weight) {
   }, fromJS([])).toJS();
 }
 
-const SideWeight = ({ onIncrease, onDecrease, onChange, total, tiny, small, medium, big, bigger, huge}) => {
+const SideWeight = ({ onIncrease, onDecrease, onKeyPress, increaseBy, clear, total, tiny, small, medium, big, bigger, huge}) => {
   return (
     <div className="container flex flex-column items-start items-stretch ">
       <div className="head" style={styles.head}>
@@ -100,7 +102,32 @@ const SideWeight = ({ onIncrease, onDecrease, onChange, total, tiny, small, medi
       </div>
 
       <div>
-        <input type="number" pattern="\d*"  value={total}  onChange={onChange} style={styles.input}/>
+        <p style={styles.weightDisplay}>{total}</p>
+      </div>
+
+      <div className="keypad flex flex-column" style={styles.keypad}>
+        <div className="flex">
+          <Key style={styles.keys} name={'1'} value={1} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'2'} value={2} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'3'} value={3} onClick={onKeyPress}></Key>
+        </div>
+        <div className="flex">
+          <Key style={styles.keys} name={'4'} value={4} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'5'} value={5} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'6'} value={6} onClick={onKeyPress}></Key>
+        </div>
+
+        <div className="flex">
+          <Key style={styles.keys} name={'7'} value={7} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'8'} value={8} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'9'} value={9} onClick={onKeyPress}></Key>
+        </div>
+
+        <div className="flex">
+          <Key style={styles.keys} name={'+5'} value={5} onClick={increaseBy}></Key>
+          <Key style={styles.keys} name={'0'} value={0} onClick={onKeyPress}></Key>
+          <Key style={styles.keys} name={'C'} value={0} onClick={clear}></Key>
+        </div>
       </div>
     </div>
 
@@ -114,6 +141,13 @@ const styles = {
   },
   disabled: {
     display: 'none'
+  },
+  keys: {
+  },
+  keypad: {
+    marginTop: '20px',
+    height: '800px',
+    width: '100%'
   },
   weightsBorder: {
     marginTop: '10px',
@@ -131,15 +165,14 @@ const styles = {
   head: {
     margin: '10px'
   },
-  input: {
+  weightDisplay: {
     fontSize: '60px',
     fontWeight: '200',
     color: '#81BDE3',
-
-    width: '40%',
+    width: '100%',
+    border: 'none',
     textAlign: 'center',
-    marginLeft: '30%',
-
+    margin: 0
   }
 
 
@@ -149,3 +182,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(SideWeight);
+
+
+//need a clear button
