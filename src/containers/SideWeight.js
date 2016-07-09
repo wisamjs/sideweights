@@ -10,8 +10,7 @@ import Barbell from '../components/Barbell';
 import { makeArray } from '../utilities/helpers';
 import { updateTotal, increaseTotalBy, clearTotal } from '../reducers/calculator';
 
-import Key from '../components/Key';
-import Input from '../components/Input';
+import Keypad from '../containers/Keypad';
 
 const BAR_WEIGHT = 45;
 const WEIGHTS = [45, 35, 25, 10, 5, 2.5];
@@ -61,41 +60,43 @@ function calculateWeights(weight) {
 
 const SideWeight = ({ onIncrease, onDecrease, onKeyPress, increaseBy, clear, total, tiny, small, medium, big, bigger, huge}) => {
   return (
-    <div className="container flex flex-column items-start items-stretch ">
-      <div className="head" style={styles.head}>
+    <div className="container flex flex-column justify-between flex-auto">
+     <div className="head" style={styles.head}>
         <h1 style={styles.title}>Side Weights</h1>
         <Barbell/>
       </div>
 
+
+
       <div className="flex flex-column" style={styles.weights}>
 
         <div className="flex justify-around">
-          <div className="flex flex-column" style={tiny ? {} : styles.disabled}>
+          <div className="flex flex-column">
           <Weight type="tiny" amount="2.5" disabled={tiny == false}></Weight>
-          <Label>{tiny}</Label>
+          <Label style={tiny ? {} : styles.disabled} > {tiny} per side</Label>
         </div>
-        <div className="flex flex-column" style={small ? {} : styles.disabled}>
+        <div className="flex flex-column">
           <Weight type="small" amount="5" disabled={small == false}></Weight>
-          <Label>{small}</Label>
+          <Label style={small ? {} : styles.disabled}>{small} per side</Label>
         </div>
-        <div className="flex flex-column" style={medium ? {} : styles.disabled}>
+        <div className="flex flex-column" >
           <Weight type="medium" amount="10" disabled={medium == false}></Weight>
-          <Label>{medium}</Label>
+          <Label style={medium ? {} : styles.disabled}>{medium} per side</Label>
         </div>
       </div>
 
       <div className="flex justify-around" style={styles.weightsBorder}>
-        <div className="flex flex-column" style={big ? {} : styles.disabled}>
+        <div className="flex flex-column">
             <Weight type="big" amount="25" disabled={big == false}></Weight>
-          <Label>{big}</Label>
+          <Label style={big ? {} : styles.disabled} >{big} per side</Label>
           </div>
-          <div className="flex flex-column" style={bigger ? {} : styles.disabled}>
+          <div className="flex flex-column">
             <Weight type="bigger" amount="35" disabled={bigger == false}></Weight>
-            <Label>{bigger}</Label>
+            <Label style={bigger ? {} : styles.disabled} >{bigger} per side</Label>
           </div>
-          <div className="flex flex-column" style={huge ? {} : styles.disabled}>
+          <div className="flex flex-column">
             <Weight type="huge" amount="45" disabled={huge == false}></Weight>
-            <Label>{huge}</Label>
+            <Label style={huge ? {} : styles.disabled} >{huge} per side</Label>
           </div>
         </div>
 
@@ -105,30 +106,7 @@ const SideWeight = ({ onIncrease, onDecrease, onKeyPress, increaseBy, clear, tot
         <p style={styles.weightDisplay}>{total}</p>
       </div>
 
-      <div className="keypad flex flex-column" style={styles.keypad}>
-        <div className="flex">
-          <Key style={styles.keys} name={'1'} value={1} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'2'} value={2} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'3'} value={3} onClick={onKeyPress}></Key>
-        </div>
-        <div className="flex">
-          <Key style={styles.keys} name={'4'} value={4} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'5'} value={5} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'6'} value={6} onClick={onKeyPress}></Key>
-        </div>
-
-        <div className="flex">
-          <Key style={styles.keys} name={'7'} value={7} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'8'} value={8} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'9'} value={9} onClick={onKeyPress}></Key>
-        </div>
-
-        <div className="flex">
-          <Key style={styles.keys} name={'+5'} value={5} onClick={increaseBy}></Key>
-          <Key style={styles.keys} name={'0'} value={0} onClick={onKeyPress}></Key>
-          <Key style={styles.keys} name={'C'} value={0} onClick={clear}></Key>
-        </div>
-      </div>
+      <Keypad className="keypad flex flex-column" styles={styles.keypad} actions ={{onKeyPress, increaseBy, clear}}/>
     </div>
 
   );
@@ -140,13 +118,12 @@ const styles = {
     height: '100%'
   },
   disabled: {
-    display: 'none'
+    visibility: 'hidden'
   },
   keys: {
   },
   keypad: {
     marginTop: '20px',
-    height: '800px',
     width: '100%'
   },
   weightsBorder: {
@@ -172,9 +149,9 @@ const styles = {
     width: '100%',
     border: 'none',
     textAlign: 'center',
-    margin: 0
+    margin: 0,
+    border: '1px solid'
   }
-
 
 };
 
@@ -183,5 +160,3 @@ export default connect(
   mapDispatchToProps,
 )(SideWeight);
 
-
-//need a clear button

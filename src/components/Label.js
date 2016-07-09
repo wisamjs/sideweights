@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const Label = ({ children }) => {
+const Label = ({ children, style }) => {
   return (
-    <label className="bold">{ children }</label>
+    <label className="bold" style={ style }>{ children }</label>
   );
 };
 

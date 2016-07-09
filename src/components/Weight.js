@@ -25,7 +25,7 @@ Weight.propTypes = {
 
 const styles = {
   outer: {
-  height: '90px',
+  height: '108px',
   width: '90px',
   borderRadius: '50%'
   },
@@ -36,7 +36,7 @@ const styles = {
     backgroundColor: '#313131',
     color: '#efefef',
     width: '80px',
-    height: '80px',
+    height: '74px',
     borderRadius: '50%',
     display: 'flex',
     justifyContent: 'center',

@@ -10,18 +10,12 @@
   </head>
 
   <body>
-    <main id="root"></main>
+    <main id="root" class="flex flex-column"></main>
 
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
       System.import('./src/index.js');
-      function autoResizeDiv() {
-        document.getElementById('root').style.height = window.innerHeight +'px';
-      }
-
-      window.onresize = autoResizeDiv;
-      autoResizeDiv();
     </script>
   </body>
 </html>
